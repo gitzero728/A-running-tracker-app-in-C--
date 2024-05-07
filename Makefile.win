@@ -1,0 +1,48 @@
+# Project: A running tracker app in C++
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = A_running_tracker_app_in_C++_private.res
+OBJ      = main.o interp.o q2.o run.o runner.o q3.o $(RES)
+LINKOBJ  = main.o interp.o q2.o run.o runner.o q3.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = "A running tracker app in C++.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+interp.o: interp.cpp
+	$(CPP) -c interp.cpp -o interp.o $(CXXFLAGS)
+
+q2.o: q2.cpp
+	$(CPP) -c q2.cpp -o q2.o $(CXXFLAGS)
+
+run.o: run.cpp
+	$(CPP) -c run.cpp -o run.o $(CXXFLAGS)
+
+runner.o: runner.cpp
+	$(CPP) -c runner.cpp -o runner.o $(CXXFLAGS)
+
+q3.o: q3.cpp
+	$(CPP) -c q3.cpp -o q3.o $(CXXFLAGS)
+
+A_running_tracker_app_in_C++_private.res: A_running_tracker_app_in_C++_private.rc 
+	$(WINDRES) -i A_running_tracker_app_in_C++_private.rc --input-format=rc -o A_running_tracker_app_in_C++_private.res -O coff 
+
